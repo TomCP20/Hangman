@@ -1,6 +1,11 @@
 import { useState } from 'react'
 import './App.css'
 import RandomWord from './RandomWord';
+import IncorrectGuessess from './components/IncorrectGuessess';
+import DisplayWord from './components/DisplayWord';
+import InputChar from './components/InputChar';
+import Diagram from './components/Diagram';
+import ResetGame from './components/ResetGame';
 
 export default function App() {
   function handleClick(c: string) {
@@ -35,52 +40,5 @@ export default function App() {
 
       <ResetGame onClick={handleReset} />
     </>
-  )
-}
-
-function IncorrectGuessess(props: Readonly<{ wrongGuesses: string[] }>) {
-  return (
-    <div>Guessed: {props.wrongGuesses.join(" ")}</div>
-  );
-}
-
-function DisplayWord(props: Readonly<{ word: string, guessed: Set<string> }>) {
-  return (
-    <div>
-      {props.word.split('').map((c) => props.guessed.has(c) ? c : "_").join(" ")}
-    </div>
-  );
-}
-
-function InputChar(props: Readonly<{ handleClick(c: string): () => void }>) {
-
-  const alphabet = "abcdefghijklmnopqrstuvwxyz";
-  return (
-    <div>
-      {alphabet.split('').map((c, i) => { return <> <button key={c} onClick={props.handleClick(c)} className='letter'>{c}</button>  {i % 10 == 9 ? <br /> : false} </> })}
-    </div>
-  )
-}
-
-function Diagram(props: Readonly<{ wrongGuessesCount: number, gameOver: boolean, gameWon: boolean }>) {
-  return (
-    <>
-      <div>
-        {props.wrongGuessesCount}/6
-      </div>
-      
-        {props.gameOver ? <div>Gameover.</div> : false}
-        {props.gameWon ? <div>You Win!</div> : false}
-      
-    </>
-
-  )
-}
-
-function ResetGame(props: Readonly<{ onClick: React.MouseEventHandler<HTMLButtonElement> }>) {
-  return (
-    <button onClick={props.onClick}>
-      Reset
-    </button>
   )
 }
