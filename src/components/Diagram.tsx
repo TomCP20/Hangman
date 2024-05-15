@@ -6,13 +6,16 @@ export default function Diagram(props: Readonly<{ wrongGuessesCount: number; }>)
 
   useEffect(() => {
     function draw(context: CanvasRenderingContext2D) {
+      function line(x1: number, y1: number, x2: number, y2: number) {
+        context.beginPath();
+        context.moveTo(x1, y1);
+        context.lineTo(x2, y2);
+        context.stroke();
+      }
       context.clearRect(0, 0, 400, 500);
       context.lineWidth = 3;
 
-      context.beginPath();
-      context.moveTo(20, 480);
-      context.lineTo(380, 480);
-      context.stroke();
+      line(20, 480, 380, 480);
 
       context.beginPath();
       context.moveTo(100, 480);
@@ -28,38 +31,23 @@ export default function Diagram(props: Readonly<{ wrongGuessesCount: number; }>)
       }
 
       if (wrongGuessesCount >= 2) {
-        context.beginPath();
-        context.moveTo(250, 160);
-        context.lineTo(250, 270);
-        context.stroke();
+        line(250, 160, 250, 270);
       }
 
       if (wrongGuessesCount >= 3) {
-        context.beginPath();
-        context.moveTo(250, 180);
-        context.lineTo(200, 200);
-        context.stroke();
+        line(250, 180, 200, 200);
       }
 
       if (wrongGuessesCount >= 4) {
-        context.beginPath();
-        context.moveTo(250, 180);
-        context.lineTo(300, 200);
-        context.stroke();
+        line(250, 180, 300, 200);
       }
 
       if (wrongGuessesCount >= 5) {
-        context.beginPath();
-        context.moveTo(250, 270);
-        context.lineTo(220, 340);
-        context.stroke();
+        line(250, 270, 220, 340);
       }
 
       if (wrongGuessesCount >= 6) {
-        context.beginPath();
-        context.moveTo(250, 270);
-        context.lineTo(280, 340);
-        context.stroke();
+        line(250, 270, 280, 340);
       }
     }
     const canvas = ref.current;
