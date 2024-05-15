@@ -1,11 +1,8 @@
 import { useState } from 'react'
 import './App.css'
 import RandomWord from './RandomWord';
-import IncorrectGuessess from './components/IncorrectGuessess';
-import DisplayWord from './components/DisplayWord';
 import InputChar from './components/InputChar';
 import Diagram from './components/Diagram';
-import ResetGame from './components/ResetGame';
 
 export default function App() {
   function handleClick(c: string) {
@@ -22,23 +19,25 @@ export default function App() {
 
   const [word, setWord] = useState(RandomWord());
   const [guessed, setGuessed] = useState(new Set(""));
+
+  const displayWord = word.split('').map((c) => guessed.has(c) ? c : "_").join(" ");
   const wrongGuesses = [...guessed].filter(c => !word.includes(c));
-  const wrongGuessesCount = wrongGuesses.length
+  const wrongGuessesCount = wrongGuesses.length;
   const gameOver = wrongGuessesCount >= 6;
-  const gameWon = word.split('').every((c) => guessed.has(c))
+  const gameWon = word.split('').every((c) => guessed.has(c));
 
 
   return (
     <>
       <Diagram wrongGuessesCount={wrongGuessesCount} gameOver={gameOver} gameWon={gameWon} />
 
-      <DisplayWord word={word} guessed={guessed} />
+      <div>{displayWord}</div>
 
-      <IncorrectGuessess wrongGuesses={wrongGuesses} />
+      <div>Guessed: {wrongGuesses.join(" ")}</div>
 
       <InputChar handleClick={handleClick} />
 
-      <ResetGame onClick={handleReset} />
+      <button onClick={handleReset}>Reset</button>
     </>
   )
 }
