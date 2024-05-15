@@ -7,7 +7,7 @@ const words = [
     "blue",
     "purple",
     "cyan",
-    "lavander",
+    "lavender",
     "lilac",
     "white",
     "black",
