@@ -31,7 +31,7 @@ export default function App() {
     <>
       <Diagram wrongGuessesCount={wrongGuessesCount} />
 
-      {gameOver ? <div>Gameover.</div> : false}
+      {gameOver ? <div>Gameover, the correct word was {word}.</div> : false}
       {gameWon ? <div>You Win!</div> : false}
 
       <div>{displayWord}</div>
