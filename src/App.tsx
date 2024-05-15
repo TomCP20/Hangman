@@ -35,7 +35,7 @@ export default function App() {
 
       <div>Guessed: {wrongGuesses.join(" ")}</div>
 
-      <InputChar handleClick={handleClick} />
+      <InputChar handleClick={handleClick} guessed={guessed} />
 
       <button onClick={handleReset}>Reset</button>
     </>
