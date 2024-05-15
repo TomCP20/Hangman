@@ -24,6 +24,10 @@ export default function Diagram(props: Readonly<{ wrongGuessesCount: number; }>)
       context.lineTo(250, 100);
       context.stroke();
 
+      line(150, 50, 100, 100);
+      line(50, 480, 100, 430);
+      line(150, 480, 100, 430);
+
       if (wrongGuessesCount >= 1) {
         context.beginPath();
         context.arc(250, 130, 30, 0, 2 * Math.PI);
