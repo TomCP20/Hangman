@@ -6,7 +6,7 @@ export default function InputChar(props: Readonly<{ handleClick(c: string): () =
       {alphabet.split('').map((c, i) => {
         return (
           <>
-            <button key={c} onClick={handleClick(c)} className='letter' disabled={guessed.has(c)}>{c}</button>
+            <button key={crypto.randomUUID()} onClick={handleClick(c)} className='letter' disabled={guessed.has(c)}>{c}</button>
             {i % 10 == 9 ? <br /> : false}
           </>
         )
