@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import RandomWord from '../RandomWord';
-import InputChar from './InputChar';
-import Diagram from './Diagram';
+import InputChar from '../components/InputChar';
+import Diagram from '../components/Diagram';
 
 export function Hangman() {
   function handleClick(c: string) {

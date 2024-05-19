@@ -1,9 +1,12 @@
 import './App.css'
-import { Hangman } from './components/Hangman';
+import { Hangman } from './pages/Hangman';
 
 export default function App() {
   return (
-    <Hangman />
+    <>
+    <h1>Hangman</h1>
+      <Hangman />
+    </>
   )
 }
 
