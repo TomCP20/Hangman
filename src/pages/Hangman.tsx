@@ -3,7 +3,7 @@ import RandomWord from '../RandomWord';
 import InputChar from '../components/InputChar';
 import Diagram from '../components/Diagram';
 
-export function Hangman() {
+export default function Hangman() {
   function handleClick(c: string) {
     return () => {
       if (!gameOver && !gameWon) {
@@ -30,6 +30,7 @@ export function Hangman() {
     <div>
       {gameOver ? <>Gameover, the correct word was {word}.</> : false}
       {gameWon ? <>You Win!</> : false}
+      {!gameOver && ! gameWon? <>Guess the word!</> : false}
     </div>
 
     <div>{displayWord}</div>
