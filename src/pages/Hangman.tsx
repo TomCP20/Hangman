@@ -2,6 +2,7 @@ import { useState } from 'react';
 import RandomWord from '../RandomWord';
 import InputChar from '../components/InputChar';
 import Diagram from '../components/Diagram';
+import { Link } from 'react-router-dom';
 
 export default function Hangman() {
   function handleClick(c: string) {
@@ -30,7 +31,7 @@ export default function Hangman() {
     <div>
       {gameOver ? <>Gameover, the correct word was {word}.</> : false}
       {gameWon ? <>You Win!</> : false}
-      {!gameOver && ! gameWon? <>Guess the word!</> : false}
+      {!gameOver && !gameWon ? <>Guess the word!</> : false}
     </div>
 
     <div>{displayWord}</div>
@@ -40,5 +41,7 @@ export default function Hangman() {
     <InputChar handleClick={handleClick} guessed={guessed} />
 
     <button onClick={handleReset}>Reset</button>
+
+    <div><Link to={"/"}>Home</Link></div>
   </>;
 }
