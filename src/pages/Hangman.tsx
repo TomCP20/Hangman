@@ -38,7 +38,7 @@ export default function Hangman() {
 
     <div>Guessed: {wrongGuesses.join(" ")}</div>
 
-    <InputChar handleClick={handleClick} guessed={guessed} />
+    <InputChar handleClick={handleClick} guessed={guessed} gameOver={gameOver} />
 
     <button onClick={handleReset} className='option'>Reset</button>
     <Link to={"/"}><button type='button' className='option'>Home</button></Link>
