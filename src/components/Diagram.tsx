@@ -1,6 +1,10 @@
 import { useEffect, useRef } from "react";
 
-export default function Diagram(props: Readonly<{ stage: number; }>) {
+interface DiagramProps {
+  stage: number;
+}
+
+export default function Diagram(props: Readonly<DiagramProps>) {
   const { stage: wrongGuessesCount } = props;
   const ref = useRef<HTMLCanvasElement>(null);
 

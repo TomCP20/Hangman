@@ -1,12 +1,20 @@
-export default function InputChar(props: Readonly<{ handleClick(c: string): () => void, guessed: Set<string>, gameOver: boolean }>) {
+import LetterButton from "./LetterButton";
+
+interface InputCharProps {
+  handleClick(c: string): () => void;
+  guessed: Set<string>;
+  gameOver: boolean;
+}
+
+export default function InputChar(props: Readonly<InputCharProps>) {
   const { handleClick, guessed, gameOver } = props;
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
   return (
     <div>
-      {alphabet.split('').map((c, i) => {
+      {alphabet.split('').map((character, i) => {
         return (
           <>
-            <button key={crypto.randomUUID()} onClick={handleClick(c)} className='letter' disabled={guessed.has(c) || gameOver}>{c}</button>
+            <LetterButton onClick={handleClick(character)} character={character} disabled={guessed.has(character) || gameOver} />
             {i % 10 == 9 ? <br /> : false}
           </>
         )
@@ -14,3 +22,4 @@ export default function InputChar(props: Readonly<{ handleClick(c: string): () =
     </div>
   );
 }
+
