@@ -40,8 +40,7 @@ export default function Hangman() {
 
     <InputChar handleClick={handleClick} guessed={guessed} />
 
-    <button onClick={handleReset}>Reset</button>
-
-    <div><Link to={"/"}>Home</Link></div>
+    <button onClick={handleReset} className='option'>Reset</button>
+    <Link to={"/"}><button type='button' className='option'>Home</button></Link>
   </>;
 }

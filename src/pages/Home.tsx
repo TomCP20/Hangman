@@ -5,7 +5,7 @@ export function Home() {
   return (
     <>
       <Diagram stage={6} />
-      <Link to={"game"}>Play Now!</Link>
+      <Link to={"game"}><button type='button' className='option'>Play!</button></Link>
     </>
   );
 }
