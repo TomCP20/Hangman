@@ -14,7 +14,7 @@ export default function InputChar(props: Readonly<InputCharProps>) {
       {alphabet.split('').map((character, i) => {
         return (
           <>
-            <LetterButton onClick={handleClick(character)} character={character} disabled={guessed.has(character) || gameOver} />
+            <LetterButton key={crypto.randomUUID()} onClick={handleClick(character)} character={character} disabled={guessed.has(character) || gameOver} />
             {i % 10 == 9 ? <br /> : false}
           </>
         )

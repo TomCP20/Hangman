@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import RandomWord from '../RandomWord';
 import InputChar from '../components/InputChar';
 import Diagram from '../components/Diagram';
@@ -12,6 +12,7 @@ export default function Hangman() {
       }
     };
   }
+
   function handleReset() {
     setGuessed(new Set(""));
     setWord(RandomWord());
@@ -25,6 +26,19 @@ export default function Hangman() {
   const wrongGuessesCount = wrongGuesses.length;
   const gameOver = wrongGuessesCount >= 6;
   const gameWon = word.split('').every((c) => guessed.has(c));
+
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      console.log(event.key)
+      if ("abcdefghijklmnopqrstuvwxyz".includes(event.key) && !gameOver && !gameWon) {
+        setGuessed(new Set(guessed).add(event.key));
+      }
+    };
+    window.addEventListener("keydown", handleKeyPress);
+
+    return () => window.removeEventListener("keydown", handleKeyPress);
+  }, [gameOver, gameWon, guessed]);
+
 
   return (
     <>
