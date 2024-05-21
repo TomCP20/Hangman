@@ -26,21 +26,23 @@ export default function Hangman() {
   const gameOver = wrongGuessesCount >= 6;
   const gameWon = word.split('').every((c) => guessed.has(c));
 
-  return <>
-    <Diagram stage={wrongGuessesCount} />
-    <div>
-      {gameOver ? <>Gameover, the correct word was {word}.</> : false}
-      {gameWon ? <>You Win!</> : false}
-      {!gameOver && !gameWon ? <>Guess the word!</> : false}
-    </div>
+  return (
+    <>
+      <Diagram stage={wrongGuessesCount} />
+      <div>
+        {gameOver ? <>Gameover, the correct word was {word}.</> : false}
+        {gameWon ? <>You Win!</> : false}
+        {!gameOver && !gameWon ? <>Guess the word!</> : false}
+      </div>
 
-    <div>{displayWord}</div>
+      <div>{displayWord}</div>
 
-    <div>Guessed: {wrongGuesses.join(" ")}</div>
+      <div>Guessed: {wrongGuesses.join(" ")}</div>
 
-    <InputChar handleClick={handleClick} guessed={guessed} gameOver={gameOver} />
+      <InputChar handleClick={handleClick} guessed={guessed} gameOver={gameOver} />
 
-    <button onClick={handleReset} className='option'>Reset</button>
-    <Link to={"/"}><button type='button' className='option'>Home</button></Link>
-  </>;
+      <button onClick={handleReset} className='option'>Reset</button>
+      <Link to={"/"}><button type='button' className='option'>Home</button></Link>
+    </>
+  );
 }
