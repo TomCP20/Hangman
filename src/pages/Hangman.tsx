@@ -3,6 +3,7 @@ import RandomWord from '../RandomWord';
 import InputChar from '../components/InputChar';
 import Diagram from '../components/Diagram';
 import { Link } from 'react-router-dom';
+import { OptionButton } from '../components/OptionButton';
 
 export default function Hangman() {
   function handleClick(c: string) {
@@ -56,8 +57,8 @@ export default function Hangman() {
       <InputChar handleClick={handleClick} guessed={guessed} gameOver={gameOver} />
 
       <div className="text-center">
-        <button onClick={handleReset} className='text-center font-mono text-2xl m-1 p-1 h-12 w-24 rounded-md border border-solid border-black bg-gray-200 hover:bg-gray-300'>Reset</button>
-        <Link to={"/"}><button type='button' className='text-center font-mono text-2xl m-1 p-1 h-12 w-24 rounded-md border border-solid border-black bg-gray-200 hover:bg-gray-300'>Home</button></Link>
+        <OptionButton onClick={handleReset}>Reset</OptionButton>
+        <Link to={"/"}><OptionButton>Home</OptionButton></Link>
       </div>
     </>
   );
