@@ -10,7 +10,7 @@ export default function InputChar(props: Readonly<InputCharProps>) {
   const { handleClick, guessed, gameOver } = props;
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
   return (
-    <div>
+    <div className="text-center">
       {alphabet.split('').map((character, i) => {
         return (
           <>

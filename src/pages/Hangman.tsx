@@ -43,20 +43,22 @@ export default function Hangman() {
   return (
     <>
       <Diagram stage={wrongGuessesCount} />
-      <div>
+      <div className="text-2xl font-serif text-center">
         {gameOver ? <>Gameover, the correct word was {word}.</> : false}
         {gameWon ? <>You Win!</> : false}
         {!gameOver && !gameWon ? <>Guess the word!</> : false}
       </div>
 
-      <div>{displayWord}</div>
+      <div className='text-2xl font-serif text-center'>{displayWord}</div>
 
-      <div>Guessed: {wrongGuesses.join(" ")}</div>
+      <div className='text-2xl font-serif text-center'>Guessed: {wrongGuesses.join(" ")}</div>
 
       <InputChar handleClick={handleClick} guessed={guessed} gameOver={gameOver} />
 
-      <button onClick={handleReset} className='option'>Reset</button>
-      <Link to={"/"}><button type='button' className='option'>Home</button></Link>
+      <div className="flex justify-center">
+        <button onClick={handleReset} className='text-center font-mono text-2xl m-1 p-1 h-12 w-24 rounded-md border border-solid border-black bg-gray-200 hover:bg-gray-300'>Reset</button>
+        <Link to={"/"}><button type='button' className='text-center font-mono text-2xl m-1 p-1 h-12 w-24 rounded-md border border-solid border-black bg-gray-200 hover:bg-gray-300'>Home</button></Link>
+      </div>
     </>
   );
 }
